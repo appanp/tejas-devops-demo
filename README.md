@@ -2,7 +2,7 @@
 ## TO DOs
 
 - [ ] Installation of GoCD server & agent
-    * [ ] Local installation in laptop *without* PostgreSQL
+    * [ ] Local installation in laptop *without* PostgreSQL. *Did not work* since [Java16 has some issues](https://github.com/gocd/gocd/issues/9469)
     * [ ] Remote installation in Azure *without* PostgreSQL
     * [ ] Remote installation in Azure *with* PostgreSQL
 - [ ] Explore how [Azure Elastic Agent Plugin](https://github.com/gocd/azure-elastic-agent-plugin) can be used for pipelines.
@@ -11,8 +11,22 @@
     * Identify anything that we add - angular testing, back-end unit-tests, etc.
 - [ ] Deploy the selected app in step above in Azure.
     * This should include steps for database server.
+- [ ] Check how to configure [Percy](https://github.com/marketplace/percy) with Browserstack login.
+    * Make changes to the UI & see how it works.
 
 ## References for GoCD 
+
+1. [Installation from zip file](https://docs.gocd.org/current/installation/install/server/zip.html)
+1. [Concepts in GoCD](https://docs.gocd.org/current/introduction/concepts_in_go.html)
+1. [Quick pipeline setup](https://docs.gocd.org/current/configuration/quick_pipeline_setup.html)
+    * [Pipeline as Code](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html)
+1. [Enabling GoCD to use PostgreSQL](https://docs.gocd.org/current/installation/configuring_database/postgres.html)
+1. [Effect of licensing changes on GoCD](https://www.gocd.org/2019/05/21/official-stance-on-java/), should not be affected.
+1. [Configuring GoCD server details](https://docs.gocd.org/current/installation/configuring_server_details.html)
+1. [GoCD Getting Started - Parts 1,2,3](https://www.gocd.org/getting-started/)
+1. [.Net  Core & GoCD](https://www.gocd.org/2016/07/13/DotNet-Core-and-GoCD/)
+
+## Value Stream Mapping - What Is?
 
 1. [What is VSM - Teamcity](https://www.jetbrains.com/teamcity/ci-cd-guide/concepts/value-stream-mapping/)
 1. [VSM, Plutora blog](https://www.plutora.com/blog/value-stream-mapping)
