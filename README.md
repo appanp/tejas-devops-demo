@@ -1,4 +1,29 @@
 
+## GoCD Essentials
+
+GoCD pipeline model as UML class diagram is available [here](./docs/). Description of the classes in the model are given below:
+
+1. [Pipeline]() is the central concept which has:
+    * [Stages]() which are run sequentially.
+    * Each stage has one or more [jobs]() which can be run parallely.
+    * Each job has one or more [tasks]() which run sequentially.
+1. [Material]() is the trigger that runs a pipeline.
+    * Trigger can be change in repo detected thru polling
+    * Webhook sent by the git repo - [webhook with Bitbucket server](https://github.com/gocd/gocd/issues/9087)
+1. [Agent]() is the ones which does the work allocated by the server.
+    * Agents can be *static* (have a fixed number of them running or *elastic* - start whenever required.
+    * [Agent can't connect to the server](https://github.com/gocd/gocd/issues/7038)
+
+## Frequently Asked Questions
+
+1. Which entity monitors the git repo - server or agent?
+    * The answer to this means where we need to generate ssh keys for private git repo access
+1. Which entity checks out the git repo - server or agent?
+    * Again required to setup ssh keys for password-less repo access.
+1. How to set the repo polling interval?
+1. How to trigger a pipeline only when the latest commit has a version tag or label?
+    * This could also be achieved by having the first stage check for presence of git label.
+
 ## TO DOs
 
 - [ ] Installation of GoCD server & agent
@@ -16,8 +41,13 @@
 - [ ] Check how to configure [Percy](https://github.com/marketplace/percy) with Browserstack login.
     * Make changes to the UI & see how it works.
 
+## GoCD Compared to Jenkins
+
+1. [Wny GoCD over Jenkins](https://www.gocd.org/2017/04/25/gocd-over-jenkins.html)
+
 ## References for GoCD 
 
+1. [Agent 008: Chaining Vulnerabilities to Compromise GoCD](https://blog.sonarsource.com/gocd-vulnerability-chain)
 1. [Installation from zip file](https://docs.gocd.org/current/installation/install/server/zip.html)
 1. [Concepts in GoCD](https://docs.gocd.org/current/introduction/concepts_in_go.html)
 1. [Quick pipeline setup](https://docs.gocd.org/current/configuration/quick_pipeline_setup.html)
@@ -29,13 +59,14 @@
 1. [.Net  Core & GoCD](https://www.gocd.org/2016/07/13/DotNet-Core-and-GoCD/)
 1. [Building An Automated Testing Pipeline with GoCD [Tutorial]](https://www.lambdatest.com/blog/building-an-automated-testing-pipeline-with-gocd/)
 1. [Jenkins Vs. GoCD: Battle Of CI/CD Tools](https://www.lambdatest.com/blog/jenkins-vs-gocd-battle-of-ci-cd-tools/)
+1. [Codefresh CI Vs GoCD](https://www.knapsackpro.com/ci_comparisons/codefresh-ci/vs/gocd)
 
 ## Value Stream Mapping (VSM) - What Is?
 
 1. [What is VSM - Teamcity](https://www.jetbrains.com/teamcity/ci-cd-guide/concepts/value-stream-mapping/)
 1. [VSM, Plutora blog](https://www.plutora.com/blog/value-stream-mapping)
 1. [Value Stream Mapping (VSM) Metrics]()
-1, [Ch.4 in Cont. Delivery with Windows & .NET Book](https://www.oreilly.com/library/view/continuous-delivery-with/9781492042327/ch04.html)
+1. [Ch.4 in Cont. Delivery with Windows & .NET Book](https://www.oreilly.com/library/view/continuous-delivery-with/9781492042327/ch04.html)
     * Has references to tools for Deployment Pipelines
     * [BuildMaster](https://inedo.com/buildmaster), [Octopus](https://octopus.com/pricing/overview), Teamcity, etc. 
 1. [Plutora VSM Book](https://go.plutora.com/mastering-software-delivery-with-value-stream-management)
